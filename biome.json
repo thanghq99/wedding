@@ -1,0 +1,76 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.4.14/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!**/dist",
+      "!**/node_modules",
+      "!**/.next",
+      "!**/.turbo",
+      "!**/coverage",
+      "!**/pnpm-lock.yaml",
+      "!**/.pnpm-store"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "double",
+      "trailingCommas": "es5"
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
+    },
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "options": {
+            "functions": ["cn", "cva"]
+          }
+        }
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "error",
+        "noExplicitAny": "warn",
+        "noConsole": "info"
+      },
+      "style": {
+        "useConst": "error",
+        "useTemplate": "error"
+      },
+      "a11y": {
+        "useAltText": "warn"
+      },
+      "complexity": {
+        "noUselessFragments": "error"
+      }
+    }
+  }
+}
