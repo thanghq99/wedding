@@ -1,79 +1,93 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.508 0.118 165.612);
-  --primary-foreground: oklch(0.979 0.021 166.113);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ivory-silk: oklch(0.96 0.01 90);
+  --stone-gray: oklch(0.85 0.01 100);
+  --deep-forest: oklch(0.32 0.03 160);
+  --sage-mist: oklch(0.62 0.02 155);
+  --hydrangea: oklch(0.76 0.04 265);
+  --background: var(--ivory-silk);
+  --foreground: var(--deep-forest);
+  --card: oklch(0.94 0.01 90);
+  --card-foreground: var(--deep-forest);
+  --popover: var(--ivory-silk);
+  --popover-foreground: var(--deep-forest);
+  --primary: var(--deep-forest);
+  --primary-foreground: var(--ivory-silk);
+  --secondary: var(--stone-gray);
+  --secondary-foreground: var(--deep-forest);
+  --muted: oklch(0.92 0.01 95);
+  --muted-foreground: oklch(0.55 0.02 160);
+  --accent: var(--hydrangea);
+  --accent-foreground: var(--deep-forest);
+  --destructive: oklch(0.6 0.15 25);
+  --border: oklch(0.88 0.01 100);
+  --input: oklch(0.88 0.01 100);
+  --ring: var(--sage-mist);
+  --radius: 0.875rem;
+  --sidebar: var(--ivory-silk);
+  --sidebar-foreground: var(--deep-forest);
+  --sidebar-primary: var(--deep-forest);
+  --sidebar-primary-foreground: var(--ivory-silk);
+  --sidebar-accent: var(--stone-gray);
+  --sidebar-accent-foreground: var(--deep-forest);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
   --chart-1: oklch(0.845 0.143 164.978);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.596 0.145 163.225);
   --chart-4: oklch(0.508 0.118 165.612);
   --chart-5: oklch(0.432 0.095 166.913);
-  --radius: 0.875rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.596 0.145 163.225);
-  --sidebar-primary-foreground: oklch(0.979 0.021 166.113);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.432 0.095 166.913);
-  --primary-foreground: oklch(0.979 0.021 166.113);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ivory-silk: oklch(0.96 0.01 90);
+  --stone-gray: oklch(0.85 0.01 100);
+  --deep-forest: oklch(0.32 0.03 160);
+  --sage-mist: oklch(0.62 0.02 155);
+  --hydrangea: oklch(0.76 0.04 265);
+  --background: oklch(0.22 0.02 160);
+  --foreground: var(--ivory-silk);
+  --card: oklch(0.25 0.02 160);
+  --card-foreground: var(--ivory-silk);
+  --popover: oklch(0.22 0.02 160);
+  --popover-foreground: var(--ivory-silk);
+  --primary: var(--sage-mist);
+  --primary-foreground: oklch(0.22 0.02 160);
+  --secondary: oklch(0.35 0.02 160);
+  --secondary-foreground: var(--ivory-silk);
+  --muted: oklch(0.28 0.02 160);
+  --muted-foreground: var(--sage-mist);
+  --accent: var(--hydrangea);
+  --accent-foreground: var(--deep-forest);
+  --destructive: oklch(0.5 0.15 25);
+  --border: oklch(0.35 0.02 160);
+  --input: oklch(0.35 0.02 160);
+  --ring: var(--sage-mist);
+  --sidebar: oklch(0.25 0.02 160);
+  --sidebar-foreground: var(--ivory-silk);
+  --sidebar-primary: var(--sage-mist);
+  --sidebar-primary-foreground: oklch(0.22 0.02 160);
+  --sidebar-accent: oklch(0.35 0.02 160);
+  --sidebar-accent-foreground: var(--ivory-silk);
+  --sidebar-border: oklch(0.35 0.02 160);
+  --sidebar-ring: var(--ring);
   --chart-1: oklch(0.845 0.143 164.978);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.596 0.145 163.225);
   --chart-4: oklch(0.508 0.118 165.612);
   --chart-5: oklch(0.432 0.095 166.913);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.696 0.17 162.48);
-  --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @theme inline {
+  --color-ivory-silk: var(--ivory-silk);
+  --color-stone-gray: var(--stone-gray);
+  --color-deep-forest: var(--deep-forest);
+  --color-sage-mist: var(--sage-mist);
+  --color-hydrangea: var(--hydrangea);
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -126,9 +140,44 @@
   html {
     @apply font-sans;
   }
+
+  h1 {
+    @apply scroll-m-20 text-balance font-heading font-semibold text-5xl tracking-normal md:text-8xl;
+  }
+
+  h2 {
+    @apply scroll-m-20 text-balance font-heading font-medium text-3xl tracking-normal md:text-4xl;
+  }
+
+  h3 {
+    @apply scroll-m-20 font-heading font-medium text-2xl tracking-normal;
+  }
+
+  h4 {
+    @apply scroll-m-20 font-heading font-medium text-xl tracking-normal;
+  }
+
+  p {
+    @apply leading-relaxed [&:not(:first-child)]:mt-6;
+  }
+
+  blockquote {
+    @apply mt-6 border-stone-500 border-l-2 pl-6 italic;
+  }
+
+  code {
+    @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+
+  .label {
+    @apply font-medium text-xs uppercase tracking-[0.4em];
+  }
+
+  .muted {
+    @apply text-muted-foreground text-sm tracking-wide;
+  }
 }
 
-/* Lenis smooth scroll */
 html.lenis,
 html.lenis body {
   height: auto;

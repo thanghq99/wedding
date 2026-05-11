@@ -1,6 +1,6 @@
 'use client'
 
-import { HeroSection } from './HeroSection'
+import { HeroSection } from './hero'
 import { InfoSection } from './InfoSection'
 import { TimeAndDateSection } from './TimeAndDateSection'
 

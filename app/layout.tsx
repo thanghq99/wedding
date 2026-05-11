@@ -1,11 +1,12 @@
-import { Geist_Mono, Great_Vibes, Raleway } from 'next/font/google'
+import { Geist_Mono, Raleway, Xanh_Mono } from 'next/font/google'
 
 import './globals.css'
+import { FloatingHeader } from '@/components/floating-header'
 import { SmoothScroll } from '@/components/smooth-scroll'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
 
-const greatVibesHeading = Great_Vibes({
+const fontHeading = Xanh_Mono({
   subsets: ['latin'],
   weight: '400',
   variable: '--font-heading',
@@ -32,11 +33,12 @@ export default function RootLayout({
         fontMono.variable,
         'font-sans',
         raleway.variable,
-        greatVibesHeading.variable
+        fontHeading.variable
       )}
     >
       <body>
         <ThemeProvider>
+          <FloatingHeader />
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
