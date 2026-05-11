@@ -1,5 +1,4 @@
 import { Geist_Mono, Raleway, Xanh_Mono } from 'next/font/google'
-
 import './globals.css'
 import { FloatingHeader } from '@/components/floating-header'
 import { SmoothScroll } from '@/components/smooth-scroll'
@@ -11,19 +10,12 @@ const fontHeading = Xanh_Mono({
   weight: '400',
   variable: '--font-heading',
 })
-
 const raleway = Raleway({ subsets: ['latin'], variable: '--font-sans' })
-
-const fontMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-})
+const fontMono = Geist_Mono({ subsets: ['latin'], variable: '--font-mono' })
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
