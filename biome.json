@@ -47,7 +47,7 @@
       "recommended": true,
       "nursery": {
         "useSortedClasses": {
-          "level": "warn",
+          "level": "error",
           "options": {
             "functions": ["cn", "cva"]
           }

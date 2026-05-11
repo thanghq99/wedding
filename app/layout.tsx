@@ -1,11 +1,13 @@
-import { Geist_Mono, Raleway, Roboto_Slab } from 'next/font/google'
+import { Geist_Mono, Great_Vibes, Raleway } from 'next/font/google'
 
 import './globals.css'
+import { SmoothScroll } from '@/components/smooth-scroll'
 import { ThemeProvider } from '@/components/theme-provider'
 import { cn } from '@/lib/utils'
 
-const robotoSlabHeading = Roboto_Slab({
+const greatVibesHeading = Great_Vibes({
   subsets: ['latin'],
+  weight: '400',
   variable: '--font-heading',
 })
 
@@ -30,11 +32,13 @@ export default function RootLayout({
         fontMono.variable,
         'font-sans',
         raleway.variable,
-        robotoSlabHeading.variable
+        greatVibesHeading.variable
       )}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   )
