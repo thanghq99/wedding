@@ -1,5 +1,6 @@
 import { Geist_Mono, Raleway, Xanh_Mono } from 'next/font/google'
 import './globals.css'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { FloatingHeader } from '@/components/floating-header'
 import { SmoothScroll } from '@/components/smooth-scroll'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -33,6 +34,7 @@ export default function RootLayout({
           <FloatingHeader />
           <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   )
