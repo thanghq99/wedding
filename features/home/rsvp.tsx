@@ -18,15 +18,8 @@ const rsvpSchema = z.object({
     .string()
     .min(10, 'Số điện thoại phải có ít nhất 10 số')
     .regex(/^[0-9]+$/, 'Số điện thoại chỉ được chứa số'),
-  guests: z
-    .string()
-    .min(1, 'Vui lòng chọn số lượng người tham dự')
-    .refine((val) => {
-      const num = parseInt(val, 10)
-      if (!Number.isNaN(num)) return num > 0
-      return true
-    }, 'Số người phải lớn hơn 0'),
-  note: z.string().optional(),
+  guests: z.string().min(1, 'Vui lòng chọn số lượng người tham dự'),
+  note: z.string(),
 })
 
 type RSVPFormValues = z.infer<typeof rsvpSchema>
@@ -48,7 +41,7 @@ export function RSVPSection() {
     watch,
     reset,
     formState: { errors },
-  } = useForm<RSVPFormValues>({
+  } = useForm({
     resolver: zodResolver(rsvpSchema),
     defaultValues: {
       name: '',

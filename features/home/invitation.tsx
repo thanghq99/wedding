@@ -26,9 +26,8 @@ export function InvitationSection() {
             thân thương nhất.
           </p>
           <p>
-            Chúng mình, Thắng và Anh, mong muốn được cùng bạn sẻ chia khoảnh
-            khắc khởi đầu cho một hành trình mới. Không cầu kỳ, không ồn ào, chỉ
-            có sự chân thành và những tâm hồn đồng điệu.
+            Chúng mình mong muốn được cùng bạn sẻ chia khoảnh khắc khởi đầu cho
+            một hành trình mới.
           </p>
           <p>
             Sự hiện diện của bạn chính là mảnh ghép hoàn hảo nhất cho ngày trọng

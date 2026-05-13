@@ -2,6 +2,7 @@
 
 import { Cat, Heart, Info, Landmark } from 'lucide-react'
 import { motion } from 'motion/react'
+import Image from 'next/image'
 
 export function FooterSection() {
   return (
@@ -23,27 +24,33 @@ export function FooterSection() {
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               <div className="space-y-4 text-center">
                 <p className="label text-sage-mist text-xs">Nhà Trai</p>
-                <div className="mx-auto flex aspect-square w-full max-w-[160px] items-center justify-center rounded-2xl border border-stone-gray/20 bg-stone-gray/10">
-                  <span className="muted text-xs">QR Nhà Trai</span>
+                <div className="mx-auto flex aspect-square w-full max-w-[160px] items-center justify-center overflow-hidden rounded-2xl border border-stone-gray/20 bg-white">
+                  <Image
+                    src="/t.webp"
+                    alt="QR Nhà Trai"
+                    width={160}
+                    height={160}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="space-y-1">
                   <p className="font-medium text-sm">Hà Văn Moè</p>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                    Ngân hàng ABC - 123456
-                  </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-center">
                 <p className="label text-sage-mist text-xs">Nhà Gái</p>
-                <div className="mx-auto flex aspect-square w-full max-w-[160px] items-center justify-center rounded-2xl border border-stone-gray/20 bg-stone-gray/10">
-                  <span className="muted text-xs">QR Nhà Gái</span>
+                <div className="mx-auto flex aspect-square w-full max-w-[160px] items-center justify-center overflow-hidden rounded-2xl border border-stone-gray/20 bg-white">
+                  <Image
+                    src="/a.webp"
+                    alt="QR Nhà Gái"
+                    width={160}
+                    height={160}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="space-y-1">
-                  <p className="font-medium text-sm">Lê THỊ Ngọc Anh</p>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                    Ngân hàng XYZ - 789012
-                  </p>
+                  <p className="font-medium text-sm">Lê Ngọc Anh</p>
                 </div>
               </div>
             </div>
@@ -65,15 +72,15 @@ export function FooterSection() {
               <li className="flex gap-3">
                 <span className="text-sage-mist">•</span>
                 <span>
-                  Bữa tiệc có chỗ đỗ xe rộng rãi ngay tại cổng chính của buổi
-                  lễ.
+                  Bữa tiệc có chỗ đỗ xe rộng rãi ngay trong khuôn viên nhà
+                  khách.
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-sage-mist">•</span>
                 <span>
-                  Đây là tiệc dành cho người lớn, hy vọng bạn thông cảm không
-                  mang theo trẻ nhỏ để buổi lễ thêm phần tĩnh lặng.
+                  Bạn cứ thoải mái sử dụng điện thoại để ghi lại những kỷ niệm
+                  đáng nhớ và chia sẻ niềm vui cùng tụi mình nhé.
                 </span>
               </li>
               <li className="flex gap-3">
