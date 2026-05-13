@@ -1,39 +1,38 @@
 'use client'
 
-import { Clock, MapPin, Shirt } from 'lucide-react'
+import { Clock, MapPin } from 'lucide-react'
 import { motion } from 'motion/react'
 
 export function CeremonySection() {
   const schedule = [
-    { time: '13:00 • Thứ 7', event: 'LỄ ĂN HỎI', desc: 'Tại tư gia nhà gái' },
     {
-      time: '15:30 • Thứ 7',
+      time: '13:00 • Thứ 7 ngày 23/5',
+      event: 'LỄ ĂN HỎI',
+      desc: 'Tại tư gia nhà gái',
+    },
+    {
+      time: '15:30 • Thứ 7 ngày 23/5',
       event: 'TIỆC NHÀ GÁI',
       desc: 'Tại Nhà Khách Hương Giang Quân Đoàn',
       isImportant: true,
     },
     {
-      time: '08:30 • Chủ Nhật',
+      time: '08:30 • Chủ Nhật ngày 24/5',
       event: 'TIỆC NHÀ TRAI',
       desc: 'Tại Nhà Khách Hương Giang Quân Đoàn',
       isImportant: true,
     },
     {
-      time: '09:00 • Chủ Nhật',
+      time: '09:00 • Chủ Nhật ngày 24/5',
       event: 'LỄ VU QUY',
       desc: 'Tại tư gia nhà gái',
     },
     {
-      time: '10:00 • Chủ Nhật',
+      time: '10:00 • Chủ Nhật ngày 24/5',
       event: 'LỄ THÀNH HÔN',
       desc: 'Tại Nhà Khách Hương Giang Quân Đoàn',
       isImportant: true,
     },
-  ]
-  const dressCode = [
-    { color: 'bg-[#B4BCB0]', name: 'Sage Green' },
-    { color: 'bg-[#8E918F]', name: 'Stone Gray' },
-    { color: 'bg-[#F2F0E9]', name: 'Cream' },
   ]
   return (
     <section
