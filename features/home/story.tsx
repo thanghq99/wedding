@@ -1,32 +1,108 @@
 'use client'
 
 import { motion } from 'motion/react'
+import Image from 'next/image'
+import { cn } from '@/lib/utils'
 
 export function StorySection() {
-  const storyItems = [
+  const storyImages = [
     {
-      id: 1,
-      title: 'Lần đầu gặp gỡ',
-      span: 'md:col-span-2 md:row-span-2',
-      bg: 'bg-stone-gray/5',
+      src: '/album/IMG_3494.webp',
+      mobile: 'col-span-2 row-span-2',
+      pc: 'md:col-span-2 md:row-span-2',
+      pcOrder: 'md:order-1',
+      delay: 0,
     },
     {
-      id: 2,
-      title: 'Hẹn hò',
-      span: 'md:col-span-1 md:row-span-1',
-      bg: 'bg-sage-mist/10',
+      src: '/album/_BQH9035.JPG',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-2',
+      delay: 0.1,
     },
     {
-      id: 3,
-      title: 'Du lịch cùng nhau',
-      span: 'md:col-span-1 md:row-span-1',
-      bg: 'bg-hydrangea/10',
+      src: '/album/IMG_3373.webp',
+      mobile: 'col-span-1 row-span-1',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-11',
+      delay: 0.2,
     },
     {
-      id: 4,
-      title: 'Lời cầu hôn',
-      span: 'md:col-span-2 md:row-span-1',
-      bg: 'bg-stone-gray/10',
+      src: '/album/IMG_3482.webp',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-5',
+      delay: 0.3,
+    },
+    {
+      src: '/album/_BQH8338.jpg',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-2 md:row-span-2',
+      pcOrder: 'md:order-4',
+      delay: 0.4,
+    },
+    {
+      src: '/album/IMG_3476.webp',
+      mobile: 'col-span-1 row-span-1',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-6',
+      delay: 0.5,
+    },
+    {
+      src: '/album/IMG_3493.webp',
+      mobile: 'col-span-1 row-span-1',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-7',
+      delay: 0.6,
+    },
+    {
+      src: '/album/IMG_3489.webp',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-8',
+      delay: 0.7,
+    },
+    {
+      src: '/album/IMG_3255.webp',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-1 md:row-span-3',
+      pcOrder: 'md:order-9',
+      delay: 0.8,
+    },
+    {
+      src: '/album/IMG_3504.webp',
+      mobile: 'col-span-1 row-span-1',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-10',
+      delay: 0.8,
+    },
+    {
+      src: '/album/IMG_3199.webp',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-1 md:row-span-3',
+      pcOrder: 'md:order-3',
+      delay: 0.8,
+    },
+    {
+      src: '/album/IMG_3372.webp',
+      mobile: 'col-span-1 row-span-2',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-12',
+      delay: 0.8,
+    },
+    {
+      src: '/album/IMG_3486.webp',
+      mobile: 'col-span-2 row-span-1',
+      pc: 'md:col-span-1 md:row-span-2',
+      pcOrder: 'md:order-13',
+      delay: 0.8,
+    },
+    {
+      src: '/album/_BQH8815.JPG',
+      mobile: 'hidden',
+      pc: 'md:block md:col-span-1 md:row-span-1',
+      pcOrder: 'md:order-14',
+      delay: 0.8,
     },
   ]
 
@@ -37,44 +113,36 @@ export function StorySection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="mb-16 space-y-4 text-center"
         >
-          <span className="label text-sage-mist italic">Câu chuyện</span>
-          <h2 className="mt-4 font-heading text-4xl text-foreground italic md:text-5xl">
-            Our Story
+          <span className="label text-sage-mist">Album</span>
+          <h2 className="font-heading text-4xl italic md:text-5xl">
+            Khoảnh khắc của chúng mình
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-            Hành trình từ người lạ thành người thương, được viết tiếp bởi những
-            khoảnh khắc ngọt ngào.
-          </p>
         </motion.div>
 
-        <div className="grid h-auto grid-cols-1 gap-4 md:h-[700px] md:grid-cols-3 md:grid-rows-2">
-          {storyItems.map((item) => (
+        <div className="grid auto-rows-[200px] grid-cols-2 gap-4 md:auto-rows-[250px] md:grid-cols-3 md:gap-6">
+          {storyImages.map((image, index) => (
             <motion.div
-              key={item.id}
+              key={image.src}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 0.99 }}
+              transition={{ delay: image.delay }}
               className={cn(
-                'group relative flex items-center justify-center overflow-hidden rounded-[2rem] border border-stone-gray/10 transition-all duration-500 hover:border-sage-mist/30',
-                item.bg,
-                item.span
+                'group relative overflow-hidden rounded-3xl border border-stone-gray/10 shadow-sm',
+                image.mobile,
+                image.pc,
+                image.pcOrder
               )}
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                <span className="font-heading text-stone-gray/30 text-xl uppercase italic tracking-widest">
-                  No Image
-                </span>
-                <span className="font-medium text-[10px] text-stone-gray/40 uppercase tracking-[0.2em] opacity-0 transition-all duration-300 group-hover:opacity-100">
-                  {item.title}
-                </span>
-              </div>
-
-              {/* Decorative corner */}
-              <div className="absolute top-6 right-6 h-6 w-6 border-sage-mist/20 border-t border-r transition-all group-hover:border-sage-mist/50" />
-              <div className="absolute bottom-6 left-6 h-6 w-6 border-sage-mist/20 border-b border-l transition-all group-hover:border-sage-mist/50" />
+              <Image
+                src={image.src}
+                alt={`Story ${index + 1}`}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/5 opacity-0 transition-opacity group-hover:opacity-100" />
             </motion.div>
           ))}
         </div>
@@ -82,5 +150,3 @@ export function StorySection() {
     </section>
   )
 }
-
-import { cn } from '@/lib/utils'
