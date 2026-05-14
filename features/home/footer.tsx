@@ -34,7 +34,7 @@ export function FooterSection() {
                   />
                 </div>
                 <div className="space-y-1">
-                  <p className="font-medium text-sm">Hà Văn Moè</p>
+                  <p className="font-medium text-sm">Hà Quốc Thắng</p>
                 </div>
               </div>
 
@@ -97,10 +97,10 @@ export function FooterSection() {
         {/* Closing */}
         <div className="space-y-6 text-center">
           <div className="mx-auto h-px w-24 bg-stone-gray/20" />
-          <p className="font-heading text-3xl text-foreground/50 italic">
+          <p className="font-heading text-3xl text-foreground italic">
             Hẹn gặp bạn tại buổi lễ
           </p>
-          <div className="flex items-center justify-center gap-2 text-sage-mist">
+          <div className="flex items-center justify-center gap-2 text-foreground">
             <span className="label">Quốc Thắng & Ngọc Anh & </span>
             <Cat className="h-4 w-4 fill-black" />
             <Heart className="h-4 w-4 fill-red-500" />
