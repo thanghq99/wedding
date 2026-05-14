@@ -194,3 +194,52 @@ html.lenis body {
 .lenis.lenis-stopped {
   overflow: hidden;
 }
+
+/* ─── Ripple Button ─────────────────────────────────────────────────────────── */
+
+/**
+ * The ::after pseudo-element is the ripple circle.
+ *
+ * At rest  → width: 0, positioned at the last leave coordinates.
+ * On hover → width: 210%, positioned at the enter coordinates.
+ *
+ * Because top/left are set to the *enter* point and we use
+ * translate(-50%, -50%) to center the circle on that point,
+ * the expansion always radiates from where the cursor crossed the border.
+ */
+.ripple-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+
+  /* Default ripple color — override with a CSS var on the element */
+  background-color: var(--ripple-color, var(--color-sage-mist));
+
+  pointer-events: none;
+  z-index: 0;
+
+  /* Anchor to the leave position when at rest */
+  top: var(--ripple-leave-y, 50%);
+  left: var(--ripple-leave-x, 50%);
+  transform: translate(-50%, -50%);
+
+  transition:
+    width 0.5s ease-out,
+    top 0.1s ease,
+    left 0.1s ease;
+}
+
+.ripple-btn:hover::after {
+  width: 210%;
+  top: var(--ripple-enter-y, 50%);
+  left: var(--ripple-enter-x, 50%);
+}
+
+/* Variant: outline — ripple uses foreground color at low opacity */
+.ripple-btn[class*="border-deep-forest"]::after {
+  background-color: var(--ripple-color, var(--color-deep-forest));
+  opacity: 0.08;
+}

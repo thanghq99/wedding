@@ -4,6 +4,7 @@ import { ChevronDown } from 'lucide-react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
 import { useRef } from 'react'
+import { TextAnimate } from '@/components/ui/text-animate'
 import HeroImage from '@/public/hero.webp'
 import HeroPCImage from '@/public/hero_pc.webp'
 
@@ -41,33 +42,25 @@ export function HeroSection() {
           priority
         />
       </div>
-      <div className="flex-1" />
-      <div className="relative z-10 flex flex-2 items-start pr-4 pl-24 md:mx-auto md:w-full md:max-w-[1250px] md:px-12">
+      <div className="flex-1 md:flex-[3]" />
+      <div className="relative z-10 flex flex-2 flex-col items-start pr-4 pl-12 md:mx-auto md:w-full md:max-w-[1250px] md:px-12">
+        <TextAnimate
+          animation="slideUp"
+          by="word"
+          className="font-heading text-5xl text-shadow-lg text-white italic leading-tight md:text-8xl"
+          style={{ opacity, y, scale }}
+        >
+          Le Mariage
+        </TextAnimate>
         <motion.div
           style={{ opacity, y, scale }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="md:w-full"
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-2 flex w-full flex-col font-heading text-2xl text-shadow-md text-white md:mt-4 md:flex-row md:items-end md:justify-between md:text-4xl"
         >
-          <h2 className="flex w-full flex-col font-heading text-5xl text-background text-shadow-lg leading-tight md:flex-row md:items-end md:justify-between md:text-7xl">
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="block"
-            >
-              thangws
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
-              className="block text-right"
-            >
-              ahngle
-            </motion.span>
-          </h2>
+          <span className="block">Quốc Thắng</span>
+          <span className="block md:text-right">Ngọc Anh</span>
         </motion.div>
       </div>
       <div className="relative z-10 flex h-[60px] w-full items-center justify-center bg-background text-foreground">

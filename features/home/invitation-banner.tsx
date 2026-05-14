@@ -4,6 +4,8 @@ import { useLenis } from 'lenis/react'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
+import { RippleButton } from '@/components/ui/ripple-button'
+
 export function InvitationBanner() {
   const lenis = useLenis()
 
@@ -20,6 +22,7 @@ export function InvitationBanner() {
             xmlns="http://www.w3.org/2000/svg"
             className="text-background"
           >
+            <title>Torn paper edge</title>
             <g filter="url(#torn-filter-top)">
               <path
                 d="M-100 -50 H2529 V100 Q1214 120 -100 100 Z"
@@ -87,20 +90,13 @@ export function InvitationBanner() {
             nha!
           </p>
 
-          <div className="pt-6">
-            <button
-              type="button"
-              onClick={() => {
-                lenis?.scrollTo('#ceremony')
-              }}
-              className="rounded-full bg-deep-forest px-10 py-4 font-heading text-ivory-silk text-xl shadow-xl transition-all hover:scale-105 hover:bg-stone-gray active:scale-95"
-            >
-              XEM LỊCH TRÌNH
-            </button>
+          <div className="flex justify-center lg:justify-start">
+            <RippleButton onClick={() => lenis?.scrollTo('#ceremony')}>
+              Xem chi tiết
+            </RippleButton>
           </div>
         </motion.div>
 
-        {/* Torn Paper Edge Bottom (using Onii-chan's filter style) */}
         <div className="absolute bottom-0 left-0 w-full rotate-180 overflow-hidden leading-[0]">
           <svg
             width="100%"
@@ -111,6 +107,7 @@ export function InvitationBanner() {
             xmlns="http://www.w3.org/2000/svg"
             className="text-card"
           >
+            <title>Torn paper edge</title>
             <g filter="url(#torn-filter-bottom)">
               <path
                 d="M-100 -50 H2529 V100 Q1214 120 -100 100 Z"

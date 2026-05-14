@@ -221,7 +221,9 @@ export function FloatingHeader() {
               className="absolute bottom-12 space-y-4 text-center"
             >
               <div className="mx-auto h-px w-12 bg-stone-gray/20" />
-              <p className="label text-muted-foreground">Thắng & Anh • 2026</p>
+              <p className="label text-muted-foreground">
+                Quốc Thắng & Ngọc Anh • 2026
+              </p>
             </motion.div>
           </motion.div>
         )}
