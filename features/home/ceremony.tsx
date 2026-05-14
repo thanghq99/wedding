@@ -113,9 +113,9 @@ export function CeremonySection() {
                 <p className="text-muted-foreground text-sm">
                   9766+2R6, Lạng Giang, Bắc Ninh
                 </p>
-                <div className="mt-4 flex h-40 w-full items-center justify-center rounded-2xl border border-stone-gray/20 bg-stone-gray/10">
+                {/* <div className="mt-4 flex h-40 w-full items-center justify-center rounded-2xl border border-stone-gray/20 bg-stone-gray/10">
                   <p className="muted text-xs">Google Maps Integration</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </motion.div>
