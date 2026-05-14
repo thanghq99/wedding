@@ -5,8 +5,9 @@ import { motion, useScroll, useTransform } from 'motion/react'
 import Image from 'next/image'
 import { useRef } from 'react'
 import { TextAnimate } from '@/components/ui/text-animate'
-import HeroImage from '@/public/hero.webp'
-import HeroPCImage from '@/public/hero_pc.webp'
+
+const HeroPCImage = '/IMG_3494.JPG'
+const HeroImage = '/IMG_3198.JPG'
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
