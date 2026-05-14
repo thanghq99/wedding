@@ -1,10 +1,13 @@
-'use client'
-
-import { motion } from 'motion/react'
+import { X } from 'lucide-react'
+import { AnimatePresence, LayoutGroup, motion } from 'motion/react'
 import Image from 'next/image'
+import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 export function StorySection() {
+  const [selectedImg, setSelectedImg] = useState<string | null>(null)
+  const [exitingImg, setExitingImg] = useState<string | null>(null)
+
   const storyImages = [
     {
       src: '/album/IMG_3494.webp',
@@ -106,47 +109,137 @@ export function StorySection() {
     },
   ]
 
-  return (
-    <section id="story" className="bg-sage-mist/5 px-6 py-24">
-      <div className="mx-auto max-w-7xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 space-y-4 text-center"
-        >
-          <span className="label text-sage-mist">Album</span>
-          <h2 className="font-heading text-4xl italic md:text-5xl">
-            Khoảnh khắc của chúng mình
-          </h2>
-        </motion.div>
+  const handleClose = () => {
+    setExitingImg(selectedImg)
+    setSelectedImg(null)
+  }
 
-        <div className="grid auto-rows-[200px] grid-cols-2 gap-4 md:auto-rows-[250px] md:grid-cols-3 md:gap-6">
-          {storyImages.map((image, index) => (
-            <motion.div
-              key={image.src}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: image.delay }}
-              className={cn(
-                'group relative overflow-hidden rounded-3xl border border-sage-mist/10 shadow-sm',
-                image.mobile,
-                image.pc,
-                image.pcOrder
-              )}
-            >
-              <Image
-                src={image.src}
-                alt={`Story ${index + 1}`}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/5 opacity-0 transition-opacity group-hover:opacity-100" />
-            </motion.div>
-          ))}
+  return (
+    <LayoutGroup id="album">
+      <section id="story" className="bg-sage-mist/5 px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 space-y-4 text-center"
+          >
+            <span className="label text-sage-mist">Album</span>
+            <h2 className="font-heading text-4xl italic md:text-5xl">
+              Khoảnh khắc của chúng mình
+            </h2>
+          </motion.div>
+
+          <div className="grid auto-rows-[200px] grid-cols-2 gap-4 md:auto-rows-[250px] md:grid-cols-3 md:gap-6">
+            {storyImages.map((image, index) => (
+              <motion.div
+                key={image.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: image.delay }}
+                className={cn(
+                  'relative',
+                  image.mobile,
+                  image.pc,
+                  image.pcOrder
+                )}
+                style={{
+                  zIndex:
+                    selectedImg === image.src || exitingImg === image.src
+                      ? 50
+                      : 0,
+                }}
+              >
+                <motion.div
+                  layoutId={`card-${image.src}`}
+                  transition={{
+                    type: 'spring',
+                    damping: 28,
+                    stiffness: 180,
+                    mass: 1,
+                  }}
+                  className="group relative h-full w-full cursor-pointer overflow-hidden rounded-3xl border border-sage-mist/10 shadow-sm"
+                  onClick={() => setSelectedImg(image.src)}
+                >
+                  <motion.div
+                    layoutId={`img-${image.src}`}
+                    transition={{
+                      type: 'spring',
+                      damping: 28,
+                      stiffness: 180,
+                      mass: 1,
+                    }}
+                    className="relative h-full w-full"
+                  >
+                    <Image
+                      src={image.src}
+                      alt={`Story ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </motion.div>
+                  <div className="absolute inset-0 bg-black/5 opacity-0 transition-opacity group-hover:opacity-100" />
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+
+        <AnimatePresence onExitComplete={() => setExitingImg(null)}>
+          {selectedImg && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-md md:p-10"
+              onClick={handleClose}
+            >
+              <motion.button
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="absolute top-6 right-6 z-[110] rounded-full bg-white/10 p-2 text-white/70 backdrop-blur-md transition-colors hover:bg-white/20 hover:text-white"
+                onClick={handleClose}
+              >
+                <X size={32} />
+              </motion.button>
+
+              <motion.div
+                layoutId={`card-${selectedImg}`}
+                transition={{
+                  type: 'spring',
+                  damping: 28,
+                  stiffness: 180,
+                  mass: 1,
+                }}
+                className="relative h-[80vh] w-full max-w-5xl overflow-hidden rounded-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <motion.div
+                  layoutId={`img-${selectedImg}`}
+                  transition={{
+                    type: 'spring',
+                    damping: 28,
+                    stiffness: 180,
+                    mass: 1,
+                  }}
+                  className="relative h-full w-full"
+                >
+                  <Image
+                    src={selectedImg}
+                    alt="Selected"
+                    fill
+                    priority
+                    quality={100}
+                    className="object-contain"
+                  />
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </section>
+    </LayoutGroup>
   )
 }

@@ -12,7 +12,7 @@ export function FloatingHeader() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
-    const audio = new Audio('/hapi_cat.mp3')
+    const audio = new Audio('/perfectviolin.mp3')
     audio.loop = true
     audioRef.current = audio
 
