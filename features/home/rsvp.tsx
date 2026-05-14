@@ -11,6 +11,8 @@ import { RippleButton } from '@/components/ui/ripple-button'
 import { Textarea } from '@/components/ui/textarea'
 import { cn } from '@/lib/utils'
 
+const GOOGLE_SHEET_URL = process.env.NEXT_PUBLIC_RSVP_SCRIPT_URL
+
 const rsvpSchema = z
   .object({
     name: z.string().min(2, 'Vui lòng nhập tên của bạn'),
@@ -55,13 +57,10 @@ const rsvpSchema = z
 
 type RSVPFormValues = z.infer<typeof rsvpSchema>
 
-const sendToGoogleSheets = async (_data: RSVPFormValues) => {
-  return new Promise((resolve) => setTimeout(resolve, 2000))
-}
-
 export function RSVPSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   const {
     register,
@@ -87,12 +86,38 @@ export function RSVPSection() {
     try {
       await sendToGoogleSheets(data)
       setIsSuccess(true)
+      setIsError(false)
 
       reset()
       setTimeout(() => setIsSuccess(false), 5000)
-    } catch (_error) {
+    } catch (error) {
+      console.error('RSVP submission failed:', error)
+      setIsError(true)
+      setIsSuccess(false)
+      setTimeout(() => setIsError(false), 8000)
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  const sendToGoogleSheets = async (data: RSVPFormValues) => {
+    if (!GOOGLE_SHEET_URL) {
+      throw new Error('Google Sheet URL is not defined')
+    }
+
+    try {
+      const response = await fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Apps Script yêu cầu no-cors nếu không muốn xử lý phức tạp
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      return response
+    } catch (error) {
+      console.error('Error sending to Google Sheets:', error)
+      throw error
     }
   }
 
@@ -325,6 +350,19 @@ export function RSVPSection() {
                   <Check className="h-4 w-4" />
                   <span className="font-medium text-sm">
                     Cảm ơn bạn đã xác nhận tham dự!
+                  </span>
+                </motion.div>
+              )}
+              {isError && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-destructive"
+                >
+                  <span className="font-medium text-sm">
+                    Oops! Form đang gặp sự cố, vui lòng liên hệ trực tiếp cho
+                    tụi mình nhé!
                   </span>
                 </motion.div>
               )}
