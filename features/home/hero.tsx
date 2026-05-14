@@ -42,26 +42,45 @@ export function HeroSection() {
           priority
         />
       </div>
-      <div className="flex-1 md:flex-[3]" />
-      <div className="relative z-10 flex flex-2 flex-col items-start pr-4 pl-12 md:mx-auto md:w-full md:max-w-[1250px] md:px-12">
+      <div className="flex-1 md:flex-[2.5]" />
+      <div className="relative z-10 flex w-full flex-2 flex-col items-start pr-4 pl-12 md:mx-auto md:max-w-[1250px] md:px-12">
         <TextAnimate
-          animation="slideUp"
-          by="word"
+          animation="blurInUp"
+          by="character"
+          once
+          delay={0}
+          duration={0.8}
           className="font-heading text-5xl text-shadow-lg text-white italic leading-tight md:text-8xl"
           style={{ opacity, y, scale }}
         >
           Le Mariage
         </TextAnimate>
-        <motion.div
-          style={{ opacity, y, scale }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-2 flex w-full flex-col font-heading text-2xl text-shadow-md text-white md:mt-4 md:flex-row md:items-end md:justify-between md:text-4xl"
-        >
-          <span className="block">Quốc Thắng</span>
-          <span className="block md:text-right">Ngọc Anh</span>
-        </motion.div>
+        <div className="flex w-full flex-col md:flex-row md:items-end md:justify-between">
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            delay={0.6}
+            duration={0.8}
+            className="mt-4 font-heading text-2xl text-shadow-md text-white md:text-4xl"
+            segmentClassName="leading-tight"
+            style={{ opacity, y, scale }}
+          >
+            Quốc Thắng
+          </TextAnimate>
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            delay={1.2}
+            duration={0.8}
+            className="mt-1 font-heading text-2xl text-shadow-md text-white md:mt-0 md:text-right md:text-4xl"
+            segmentClassName="leading-tight"
+            style={{ opacity, y, scale }}
+          >
+            Ngọc Anh
+          </TextAnimate>
+        </div>
       </div>
       <div className="relative z-10 flex h-[60px] w-full items-center justify-center bg-background text-foreground">
         <p className="font-medium uppercase tracking-widest">2026 May 23, 24</p>

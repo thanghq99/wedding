@@ -65,49 +65,47 @@ export function FloatingHeader() {
         <motion.div
           initial={false}
           transition={{
-            type: 'spring',
-            stiffness: 250,
-            damping: 28,
-            mass: 1,
+            duration: 0.4,
+            ease: 'easeInOut',
           }}
           animate={
             isFloating
               ? {
-                  width: 'calc(100% - 48px)',
-                  maxWidth: '400px',
-                  backgroundColor: 'oklch(from var(--background) l c h / 0.8)',
-                  backdropFilter: 'blur(12px)',
+                  width: '100%',
+                  maxWidth: '1250px',
+                  backgroundColor: 'oklch(from var(--background) l c h / 0.5)',
+                  backdropFilter: 'blur(8px)',
                   borderRadius: '9999px',
                   padding: '10px 24px',
-                  y: 0,
+                  y: 4,
                   border: '1px solid oklch(from var(--stone-gray) l c h / 0.2)',
                   boxShadow: '0 10px 30px -10px rgba(0,0,0,0.1)',
                 }
               : {
                   width: '100%',
-                  maxWidth: '100%',
+                  maxWidth: '1250px',
                   backgroundColor: 'transparent',
                   backdropFilter: 'blur(0px)',
-                  borderRadius: '0px',
-                  padding: '8px 24px',
+                  borderRadius: '9999px',
+                  padding: '10px 24px',
                   y: 0,
                   border: '1px solid transparent',
                   boxShadow: 'none',
                 }
           }
           className={cn(
-            'pointer-events-auto flex items-center justify-between overflow-hidden will-change-transform',
+            'pointer-events-auto relative flex items-center justify-between overflow-hidden will-change-transform',
             !isFloating && 'w-full'
           )}
           style={{ transform: 'translateZ(0)' }}
         >
           <motion.h2
+            initial={{ opacity: 0, x: -10 }}
             animate={{
               opacity: isFloating ? 1 : 0,
-              width: isFloating ? 'auto' : 0,
-              marginRight: isFloating ? 24 : 0,
+              x: isFloating ? 0 : -10,
             }}
-            className="overflow-hidden whitespace-nowrap font-heading text-xl"
+            className="absolute left-6 font-heading text-xl md:left-8"
           >
             t & a
           </motion.h2>
