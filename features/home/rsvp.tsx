@@ -90,8 +90,7 @@ export function RSVPSection() {
 
       reset()
       setTimeout(() => setIsSuccess(false), 5000)
-    } catch (error) {
-      console.error('RSVP submission failed:', error)
+    } catch (_error) {
       setIsError(true)
       setIsSuccess(false)
       setTimeout(() => setIsError(false), 8000)
@@ -116,7 +115,6 @@ export function RSVPSection() {
       })
       return response
     } catch (error) {
-      console.error('Error sending to Google Sheets:', error)
       throw error
     }
   }

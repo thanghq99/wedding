@@ -8,6 +8,13 @@ export function StorySection() {
   const [selectedImg, setSelectedImg] = useState<string | null>(null)
   const [exitingImg, setExitingImg] = useState<string | null>(null)
 
+  const preloadImage = (src: string) => {
+    if (typeof window !== 'undefined') {
+      const img = new window.Image()
+      img.src = src
+    }
+  }
+
   const storyImages = [
     {
       src: '/album/IMG_3494.JPG',
@@ -138,6 +145,7 @@ export function StorySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: image.delay }}
+                onMouseEnter={() => preloadImage(image.src)}
                 className={cn(
                   'relative',
                   image.mobile,
