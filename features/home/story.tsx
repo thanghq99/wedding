@@ -45,7 +45,7 @@ export function StorySection() {
       delay: 0.3,
     },
     {
-      src: '/album/_BQH8338.jpg',
+      src: '/album/_BQH8338.JPG',
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-2 md:row-span-2',
       pcOrder: 'md:order-4',
