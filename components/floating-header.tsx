@@ -183,7 +183,7 @@ export function FloatingHeader() {
               className="mt-2 text-center"
             >
               <p className="font-medium text-[10px] text-foreground uppercase italic tracking-[0.2em]">
-                Now Playing: Hapi Cat
+                Now Playing: Perfect
               </p>
             </motion.div>
           )}

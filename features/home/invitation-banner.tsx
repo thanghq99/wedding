@@ -91,7 +91,13 @@ export function InvitationBanner() {
           </p>
 
           <div className="flex justify-center lg:justify-start">
-            <RippleButton onClick={() => lenis?.scrollTo('#ceremony')}>
+            <RippleButton
+              onClick={() =>
+                lenis?.scrollTo('#ceremony', {
+                  offset: -30,
+                })
+              }
+            >
               Xem chi tiết
             </RippleButton>
           </div>
