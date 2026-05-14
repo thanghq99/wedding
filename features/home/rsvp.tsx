@@ -99,7 +99,7 @@ export function RSVPSection() {
   return (
     <section
       id="rsvp"
-      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-card px-6 py-24"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-background px-6 py-24"
     >
       <div className="w-full max-w-xl space-y-12">
         <div className="space-y-4 text-center">

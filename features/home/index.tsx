@@ -14,8 +14,8 @@ export function HomeView() {
       <InvitationSection />
       <InvitationBanner />
       <CeremonySection />
-      <StorySection />
       <RSVPSection />
+      <StorySection />
       <FooterSection />
     </main>
   )

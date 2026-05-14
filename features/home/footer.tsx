@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export function FooterSection() {
   return (
-    <footer className="relative w-full bg-background px-6 py-24">
+    <footer className="relative w-full bg-card px-6 py-24">
       <div className="mx-auto flex w-full max-w-4xl flex-col gap-24">
         {/* Registry */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">

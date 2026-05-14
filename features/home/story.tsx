@@ -107,7 +107,7 @@ export function StorySection() {
   ]
 
   return (
-    <section id="story" className="bg-background px-6 py-24">
+    <section id="story" className="bg-sage-mist/5 px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -130,7 +130,7 @@ export function StorySection() {
               viewport={{ once: true }}
               transition={{ delay: image.delay }}
               className={cn(
-                'group relative overflow-hidden rounded-3xl border border-stone-gray/10 shadow-sm',
+                'group relative overflow-hidden rounded-3xl border border-sage-mist/10 shadow-sm',
                 image.mobile,
                 image.pc,
                 image.pcOrder

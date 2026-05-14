@@ -43,8 +43,8 @@ export function FloatingHeader() {
   const navLinks = [
     { name: 'Lời ngỏ', href: '#invitation' },
     { name: 'Lịch trình', href: '#ceremony' },
-    { name: 'Album', href: '#story' },
     { name: 'Xác nhận', href: '#rsvp' },
+    { name: 'Album', href: '#story' },
   ]
 
   useEffect(() => {
