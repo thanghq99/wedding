@@ -1,19 +1,13 @@
+'use client'
+
 import { X } from 'lucide-react'
 import { AnimatePresence, LayoutGroup, motion } from 'motion/react'
-import Image from 'next/image'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 export function StorySection() {
   const [selectedImg, setSelectedImg] = useState<string | null>(null)
   const [exitingImg, setExitingImg] = useState<string | null>(null)
-
-  const preloadImage = (src: string) => {
-    if (typeof window !== 'undefined') {
-      const img = new window.Image()
-      img.src = src
-    }
-  }
 
   const storyImages = [
     {
@@ -138,6 +132,13 @@ export function StorySection() {
     setSelectedImg(null)
   }
 
+  const springTransition = {
+    type: 'spring',
+    damping: 28,
+    stiffness: 180,
+    mass: 1,
+  } as const
+
   return (
     <LayoutGroup id="album">
       <section id="story" className="bg-sage-mist/5 px-6 py-24">
@@ -162,7 +163,6 @@ export function StorySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: image.delay }}
-                onMouseEnter={() => preloadImage(image.src)}
                 className={cn(
                   'relative',
                   image.mobile,
@@ -178,33 +178,19 @@ export function StorySection() {
               >
                 <motion.div
                   layoutId={`card-${image.src}`}
-                  transition={{
-                    type: 'spring',
-                    damping: 28,
-                    stiffness: 180,
-                    mass: 1,
-                  }}
+                  transition={springTransition}
                   className="group relative h-full w-full cursor-pointer overflow-hidden rounded-3xl border border-sage-mist/10 shadow-sm"
                   onClick={() => setSelectedImg(image.src)}
                 >
-                  <motion.div
+                  {/* Use native motion.img so Framer Motion reuses the exact same
+                      DOM node during layout animation — no image reload flash */}
+                  <motion.img
                     layoutId={`img-${image.src}`}
-                    transition={{
-                      type: 'spring',
-                      damping: 28,
-                      stiffness: 180,
-                      mass: 1,
-                    }}
-                    className="relative h-full w-full"
-                  >
-                    <Image
-                      src={image.src}
-                      alt={`Story ${index + 1}`}
-                      fill
-                      sizes={image.sizes}
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </motion.div>
+                    transition={springTransition}
+                    src={image.src}
+                    alt={`Story ${index + 1}`}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-black/5 opacity-0 transition-opacity group-hover:opacity-100" />
                 </motion.div>
               </motion.div>
@@ -232,34 +218,17 @@ export function StorySection() {
 
               <motion.div
                 layoutId={`card-${selectedImg}`}
-                transition={{
-                  type: 'spring',
-                  damping: 28,
-                  stiffness: 180,
-                  mass: 1,
-                }}
+                transition={springTransition}
                 className="relative h-[80vh] w-full max-w-5xl overflow-hidden rounded-2xl"
                 onClick={(e) => e.stopPropagation()}
               >
-                <motion.div
+                <motion.img
                   layoutId={`img-${selectedImg}`}
-                  transition={{
-                    type: 'spring',
-                    damping: 28,
-                    stiffness: 180,
-                    mass: 1,
-                  }}
-                  className="relative h-full w-full"
-                >
-                  <Image
-                    src={selectedImg}
-                    alt="Selected"
-                    fill
-                    priority
-                    quality={100}
-                    className="object-contain"
-                  />
-                </motion.div>
+                  transition={springTransition}
+                  src={selectedImg}
+                  alt="Selected"
+                  className="h-full w-full object-contain"
+                />
               </motion.div>
             </motion.div>
           )}
