@@ -21,6 +21,8 @@ export function StorySection() {
       mobile: 'col-span-2 row-span-2',
       pc: 'md:col-span-2 md:row-span-2',
       pcOrder: 'md:order-1',
+      // col-span-2 on mobile (100vw), col-span-2/3 on desktop (66vw)
+      sizes: '(max-width: 768px) 100vw, 66vw',
       delay: 0,
     },
     {
@@ -28,6 +30,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-2',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.1,
     },
     {
@@ -35,6 +38,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-1',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-11',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.2,
     },
     {
@@ -42,6 +46,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-5',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.3,
     },
     {
@@ -49,6 +54,8 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-2 md:row-span-2',
       pcOrder: 'md:order-4',
+      // col-span-1 on mobile (50vw), col-span-2/3 on desktop (66vw)
+      sizes: '(max-width: 768px) 50vw, 66vw',
       delay: 0.4,
     },
     {
@@ -56,6 +63,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-1',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-6',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.5,
     },
     {
@@ -63,6 +71,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-1',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-7',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.6,
     },
     {
@@ -70,6 +79,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-8',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.7,
     },
     {
@@ -77,6 +87,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-1 md:row-span-3',
       pcOrder: 'md:order-9',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.8,
     },
     {
@@ -84,6 +95,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-1',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-10',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.8,
     },
     {
@@ -91,6 +103,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-1 md:row-span-3',
       pcOrder: 'md:order-3',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.8,
     },
     {
@@ -98,6 +111,7 @@ export function StorySection() {
       mobile: 'col-span-1 row-span-2',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-12',
+      sizes: '(max-width: 768px) 50vw, 33vw',
       delay: 0.8,
     },
     {
@@ -105,6 +119,8 @@ export function StorySection() {
       mobile: 'col-span-2 row-span-1',
       pc: 'md:col-span-1 md:row-span-2',
       pcOrder: 'md:order-13',
+      // col-span-2 on mobile (100vw), col-span-1/3 on desktop (33vw)
+      sizes: '(max-width: 768px) 100vw, 33vw',
       delay: 0.8,
     },
     {
@@ -112,6 +128,7 @@ export function StorySection() {
       mobile: 'hidden',
       pc: 'md:block md:col-span-1 md:row-span-1',
       pcOrder: 'md:order-14',
+      sizes: '33vw',
       delay: 0.8,
     },
   ]
@@ -184,7 +201,7 @@ export function StorySection() {
                       src={image.src}
                       alt={`Story ${index + 1}`}
                       fill
-                      sizes="(max-width: 768px) 50vw, 33vw"
+                      sizes={image.sizes}
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </motion.div>
