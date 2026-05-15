@@ -30,7 +30,7 @@ export function HeroSection() {
           src={HeroImage}
           alt="Hero Image"
           fill
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'cover', objectPosition: 'center 80%' }}
           priority
         />
       </div>

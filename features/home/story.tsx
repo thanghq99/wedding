@@ -17,7 +17,7 @@ export function StorySection() {
 
   const storyImages = [
     {
-      src: '/album/IMG_3494.JPG',
+      src: '/IMG_3494.JPG',
       mobile: 'col-span-2 row-span-2',
       pc: 'md:col-span-2 md:row-span-2',
       pcOrder: 'md:order-1',
