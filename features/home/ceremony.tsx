@@ -110,12 +110,21 @@ export function CeremonySection() {
                 <h3 className="font-medium text-lg">
                   Nhà Khách Hương Giang Quân Đoàn
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-sm italic">
                   9766+2R6, Lạng Giang, Bắc Ninh
                 </p>
-                {/* <div className="mt-4 flex h-40 w-full items-center justify-center rounded-2xl border border-stone-gray/20 bg-stone-gray/10">
-                  <p className="muted text-xs">Google Maps Integration</p>
-                </div> */}
+                <div className="mt-4 flex h-80 w-full items-center justify-center rounded-2xl border border-stone-gray/20 bg-stone-gray/10">
+                  <iframe
+                    title="Bản đồ Lạng Giang"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5000.0!2d106.18243!3d21.36511!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135694161ac41c1%3A0x584fb57fd5cbbf7c!2zOTc2NisycjYsIGzhuqFuZyBnaWFuZywgYuG6r2MgbmluaA!5e0!3m2!1svi!2svn!4v1715752000000!5m2!1svi!2svn"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </motion.div>
